@@ -23,6 +23,7 @@ class DatabaseHelper {
       return _db;
     }
     _db = await initDb();
+    return _db;
   }
 
   DatabaseHelper.internal();
@@ -36,7 +37,7 @@ class DatabaseHelper {
 
   void _onCreate(Database db, int version) async {
     await db.execute(
-        "CREATE TABLE $tableUser($columeId INTEGER PRINMARY KEY , $columnUsername TEXT , $columnPassword TEXT)");
+        "CREATE TABLE $tableUser($columeId INTEGER PRIMARY KEY , $columnUsername TEXT , $columnPassword TEXT)");
   }
 
   //CRUD
@@ -66,9 +67,9 @@ class DatabaseHelper {
         "SELECT * FROM $tableUser WHERE $columeId = $id");
     if (result.length == 0)
       return null;
-    else {
+
       return new User.fromMap(result.first);
-    }
+
   }
 
   Future<int> deleteUser(int id) async{
