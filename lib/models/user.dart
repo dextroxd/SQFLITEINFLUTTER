@@ -18,7 +18,7 @@ class User{
     var map = new Map<String,dynamic>();
     map["username"] = _username;
     map["password"] = _password;
-    if(id!=null){
+    if(_id!=null){
       map["id"] = _id;
     }
     return map;

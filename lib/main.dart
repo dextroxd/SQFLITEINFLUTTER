@@ -8,6 +8,7 @@ List _users;
 
 void main() async {
   var db = new DatabaseHelper();
+  db.saveUser(new User("Divyanshu", "Dhawan"));
   _users = await db.getAllUsers();
   runApp(new MaterialApp(
     home: new Home(),
